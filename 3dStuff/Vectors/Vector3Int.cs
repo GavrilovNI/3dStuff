@@ -169,7 +169,7 @@ public struct Vector3Int
             format = "F";
         if(formatProvider == null)
             formatProvider = CultureInfo.InvariantCulture.NumberFormat;
-        return $"{X.ToString(format, formatProvider)}, {Y.ToString(format, formatProvider)}, {X.ToString(format, formatProvider)}";
+        return $"{X.ToString(format, formatProvider)}, {Y.ToString(format, formatProvider)}, {Z.ToString(format, formatProvider)}";
     }
 
     private static readonly Vector3Int _zero = new(0, 0, 0);
