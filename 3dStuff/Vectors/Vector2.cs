@@ -17,7 +17,7 @@ public struct Vector2
 
     public Vector2() : this(0, 0) { }
     public Vector2(double x, double y) => (X, Y) = (x, y);
-    public Vector2(Vector2 other) => this = other;
+    public Vector2(Vector2 other) => (X, Y) = (other.X, other.Y);
 
     public double GetAxis(Axis axis) => axis switch
     {
@@ -38,7 +38,11 @@ public struct Vector2
     public double SqrMagnitude() => X * X + Y * Y;
     public double Magnitude() => Math.Sqrt(SqrMagnitude());
 
-    public Vector2 Normalize() => this = Normalized();
+    public void Normalize()
+    {
+        Vector2 normilized = Normalized();
+        (X, Y) = (normilized.X, normilized.Y);
+    }
     public Vector2 Normalized()
     {
         double sqrMag = SqrMagnitude();

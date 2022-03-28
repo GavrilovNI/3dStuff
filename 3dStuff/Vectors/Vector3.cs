@@ -24,7 +24,7 @@ public struct Vector3
 
     public Vector3() : this(0, 0, 0) { }
     public Vector3(double x, double y, double z) => (X, Y, Z) = (x, y, z);
-    public Vector3(Vector3 other) => this = other;
+    public Vector3(Vector3 other) => (X, Y, Z) = (other.X, other.Y, other.Z);
 
     public double GetAxis(Axis axis) => axis switch
     {
@@ -38,7 +38,11 @@ public struct Vector3
     public double SqrMagnitude() => X * X + Y * Y + Z * Z;
     public double Magnitude() => Math.Sqrt(SqrMagnitude());
 
-    public Vector3 Normalize() => this = Normalized();
+    public void Normalize()
+    {
+        Vector3 normilized = Normalized();
+        (X, Y, Z) = (normilized.X, normilized.Y, normilized.Z);
+    }
     public Vector3 Normalized()
     {
         double sqrMag = SqrMagnitude();
